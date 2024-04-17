@@ -1,7 +1,13 @@
+
 const PhotoUploadForm = () => {
+
+  const changeHandler = () => {
+    console.log('changed');
+  }
+
   return (
     <form>
-      <input type="file"/>
+      <input type="file" onChange={changeHandler}/>
     </form>
   )
 };
