@@ -3,8 +3,10 @@ import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/firestore';
 
+const FIREBASE_API_KEY = import.meta.env.FIREBASE_API_KEY
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCSU9DL9DItsVIwiPNUX8elysdKs7dTTyg",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "photolog-e2c5d.firebaseapp.com",
   projectId: "photolog-e2c5d",
   storageBucket: "photolog-e2c5d.appspot.com",
