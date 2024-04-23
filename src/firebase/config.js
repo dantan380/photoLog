@@ -1,7 +1,7 @@
 // Your web app's Firebase configuration
-import * as firebase from 'firebase/app';
-import 'firebase/storage';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getStorage } from 'firebase/storage';
+import {getFirestore } from 'firebase/firestore';
 
 const FIREBASE_API_KEY = import.meta.env.FIREBASE_API_KEY
 
@@ -15,9 +15,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+let app;
 
-const projStorage = firebase.storage();
-const projFirestore = firebase.firestore();
+try {
+  app = initializeApp(firebaseConfig);
+  console.log("Firebase Storage initilized successfully.");
+} catch (error) {
+  console.error("Firebase Storage initilization failed:", error);
+}
+
+const projStorage = getStorage(app);
+const projFirestore = getFirestore(app);
 
 export { projFirestore, projStorage };
