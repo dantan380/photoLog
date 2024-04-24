@@ -17,6 +17,7 @@ const useStorage = (file) => {
     const storageRef = ref(projStorage, file.name);
     const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
+    //Create reference to collection.
     const imagesCollectionRef = collection(projFirestore, 'images');
 
     //After each state change for the upload, take a snap shot, which is the current percentage.
@@ -29,8 +30,10 @@ const useStorage = (file) => {
        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
         console.log('File available at', downloadURL);
         const createdAt = serverTimestamp();
+
+        //Add record of the image as a document with the timestamp and url to the 'images' collection.
         const docRef = addDoc(imagesCollectionRef, {
-          createdAt: createdAt,
+          timestamp: createdAt,
           url: downloadURL
         })
         console.log('Document has been created at: ', docRef.createdAt);
