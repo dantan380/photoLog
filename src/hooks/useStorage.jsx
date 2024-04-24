@@ -11,21 +11,24 @@ const useStorage = (file) => {
     const metadata = {
     contentType: 'image/jpeg'
   };
+
+    //Create reference for storage and upload path for each file.
     const storageRef = ref(projStorage, file.name);
     const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
+    //After each state change for the upload, take a snap shot, which is the current percentage.
     uploadTask.on('state_changed', (snap) => {
       let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
       setProgress(percentage);
     }, (err) => {
       setError(err);
-    }, async () => {
-      await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+    }, () => {
+       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
         console.log('File available at', downloadURL);
+        setUrl(downloadURL)
       });
-      setUrl(url);
     })
-  }, [file])
+  }, [file, url])
 
   return { progress, url, error };
 
