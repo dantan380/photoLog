@@ -7,7 +7,6 @@ const ProgressBar = ({file, setFile}) => {
   //If URL exists, set 'file' to null to remove progress bar upon completion.
   useEffect(() => {
     if (url) {
-      console.log("url exists")
       setFile(null);
     }
   }, [url, setFile])
