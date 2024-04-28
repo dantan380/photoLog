@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const FullPage = ({ selectedImg, setSelectedImg }) => {
 
   const handleClick = (e) => {
@@ -5,10 +7,13 @@ const FullPage = ({ selectedImg, setSelectedImg }) => {
   }
   
   return (
-    <div className='fullImageContainer' onClick={handleClick}>
+    <motion.div className='fullImageContainer' onClick={handleClick}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <img src={selectedImg} alt='full size image'/>
       <button>Back</button>
-    </div>
+    </motion.div>
   )
 };
 
