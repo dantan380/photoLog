@@ -1,8 +1,7 @@
 import { useState } from "react";
 import ProgressBar from "./ProgressBar";
 
-const PhotoUploadForm = () => {
-  const [file, setFile] = useState(null);
+const PhotoUploadForm = ({ file, setFile }) => {
   const [error, setError] = useState(null);
 
   const allowedTypes = ['image/png', 'image/jpeg'];
@@ -33,5 +32,7 @@ const PhotoUploadForm = () => {
     </form>
   )
 };
+
+PhotoUploadForm.propTypes = null;
 
 export default PhotoUploadForm;

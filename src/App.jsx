@@ -7,13 +7,16 @@ import { useState } from 'react';
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
+  const [file, setFile] = useState(null);
 
   return (
     <div className='App'>
       <Title/>
-      <PhotoUploadForm/>
+      <PhotoUploadForm file={file} setFile={setFile}/>
       <ImageGrid setSelectedImg={setSelectedImg}/>
-      { selectedImg && <FullPage selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> }
+      { selectedImg && <FullPage 
+      selectedImg={selectedImg} 
+      setSelectedImg={setSelectedImg} /> }
     </div>
   );
 }
