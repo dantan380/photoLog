@@ -32,11 +32,12 @@ const useStorage = (file) => {
         const createdAt = serverTimestamp();
 
         //Add record of the image as a document with the timestamp and url to the 'images' collection.
-        const docRef = addDoc(imagesCollectionRef, {
+        addDoc(imagesCollectionRef, {
+          name: file.name,
           timestamp: createdAt,
           url: downloadURL
         })
-        console.log('Document has been created at: ', docRef.createdAt);
+        console.log('Document has been created.');
         setUrl(downloadURL);
       });
     })
