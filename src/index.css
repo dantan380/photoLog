@@ -127,6 +127,7 @@ label:hover{
   height: fit-content;
   font-size: larger;
   cursor: pointer;
+  border: none;
 }
 
 .backButton{
@@ -136,4 +137,5 @@ label:hover{
   height: fit-content;
   font-size: larger;
   cursor: pointer;
+  border: none;
 }

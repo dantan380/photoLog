@@ -47,8 +47,8 @@ const FullPage = ({ selectedImg, setSelectedImg }) => {
     >
       <img src={selectedImg} alt='full size image'/>
       <div className="buttonContainer">
-        <button className="backButton" onClick={handleClick}>Back</button>
-        <button className="deleteButton" onClick={deleteImage}>Delete</button>
+        <motion.button whileHover={{ scale: 1.25 }} className="backButton" onClick={handleClick}>Back</motion.button>
+        <motion.button whileHover={{ scale: 1.25 }} className="deleteButton" onClick={deleteImage}>Delete</motion.button>
       </div>
     </motion.div>
   )
