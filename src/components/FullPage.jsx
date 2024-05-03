@@ -46,8 +46,10 @@ const FullPage = ({ selectedImg, setSelectedImg }) => {
       animate={{ opacity: 1 }}
     >
       <img src={selectedImg} alt='full size image'/>
-      <button onClick={handleClick}>Back</button>
-      <button onClick={deleteImage}>Delete</button>
+      <div className="buttonContainer">
+        <button className="backButton" onClick={handleClick}>Back</button>
+        <button className="deleteButton" onClick={deleteImage}>Delete</button>
+      </div>
     </motion.div>
   )
 };
